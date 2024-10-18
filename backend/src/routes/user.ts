@@ -24,7 +24,7 @@ userRouter.post('/signup', async (c) => {
     if(!success){
         c.status(411);
         return c.json({
-            msg:"inputs are not correct"
+            msg:"inputs are not correct(ZOD error)"
         })
     }
 
@@ -43,7 +43,7 @@ userRouter.post('/signup', async (c) => {
 
     } catch (error) {
         console.log(error)
-        return c.text("invalid")
+        return c.text("invalid data or user already existed")
     }
 
 

@@ -1,60 +1,53 @@
-import { BlogCard } from "../components/BlogCard";
+import axios from 'axios'
+import { Blogdemo } from '../components/Blogdemo'
+import { useEffect, useState } from 'react'
 
-import { Appbar } from "../components/Appbar";
-// import { BlogSkeleton } from "../components/BlogSkeleton";
-// import { useBlogs } from "../hooks";
+export interface Blogif{
+  "content":string,
+  "title":string,
+  "id":string,
+  "author":{
+    "name":string
+  },
+
+}
 
 export const Blogs = () => {
-    // const { loading, blogs, error } = useBlogs();
+const[allblogs,setallblogs]=useState<Blogif[]>([])
 
-    // if (loading) {
-    //     return <div>
-    //         <Appbar />
-    //         <div className="flex justify-center">
-    //             <div>
-    //                 <BlogSkeleton />
-    //                 <BlogSkeleton />
-    //                 <BlogSkeleton />
-    //                 <BlogSkeleton />
-    //                 <BlogSkeleton />
-    //             </div>
-    //         </div>
-    //     </div>
-    // }
+  useEffect(() => {
 
-    // if (error) {
-    //     return <div>
-    //         Error: {error}
-    //     </div>;
-    // }
+    const fetch_allblogs = async () => {
+      try {
 
-    return (
-        <div>
-             <Appbar />
-           {/* <div className="flex justify-center">
-                <div>
-                    {blogs.map(blog => (
-                        <BlogCard
-                            id={blog.id}
-                            authorName={blog.author.name || "John Doe"}
-                            title={blog.title}
-                            content={blog.content}
-                            publishedDate={"2nd Fab 2024"}
-                        />
-                    ))}
-                </div>
-            </div> */}
-            <div>
-                   
-                        <BlogCard
-                            id={1}
-                            authorName={ "John Doe"}
-                            title={"title"}
-                            content={"lorem ipsum 1001010101010"}
-                            publishedDate={"2nd Fab 2024"}
-                        />
-                    
-                </div>
-        </div>
-    );
-};
+        const token = localStorage.getItem('token');
+        const headers = {
+          Authorization: token
+        }
+        const allblogs_reponse = await axios.get("http://127.0.0.1:8787/api/v1/blog/bulk", { headers })
+        const blogs=allblogs_reponse.data.blogs
+        console.log('all the  blogs are ', blogs)
+
+        setallblogs(blogs)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    fetch_allblogs()
+  }, [])
+
+  return (
+    <div>
+      {allblogs.length>0 ?(
+        allblogs.map((blog)=>(
+          <div key={blog.id}>
+          <Blogdemo  blog={blog}></Blogdemo>
+          </div>
+          
+        ))
+      ):(
+        <p>no blogs available </p>
+      )}
+    </div>
+  )
+}
