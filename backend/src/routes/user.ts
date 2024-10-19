@@ -2,7 +2,7 @@ import { Hono } from "hono"
 import { PrismaClient } from '@prisma/client/edge'
 import { withAccelerate } from '@prisma/extension-accelerate'
 import { sign } from 'hono/jwt'
-import { SigninInput,singninInput,singnupInput } from "medium-common-week17"
+import { singninInput, singnupInput } from "medium-common-week17"
 
 export const userRouter = new Hono<{
     Bindings: {
@@ -13,32 +13,40 @@ export const userRouter = new Hono<{
 
 
 userRouter.post('/signup', async (c) => {
-    
+
 
     const prisma = new PrismaClient({
         datasourceUrl: c.env?.DATABASE_URL,
     }).$extends(withAccelerate())
 
     const body = await c.req.json()
-    const{success}=singnupInput.safeParse(body)
-    if(!success){
+    const { success } = singnupInput.safeParse(body)
+    if (!success) {
         c.status(411);
         return c.json({
-            msg:"inputs are not correct(ZOD error)"
+            msg: "inputs are not correct(ZOD error)"
         })
     }
 
     try {
+
         const user = await prisma.user.create({
             data: {
+                name:body.name,
                 username: body.username,
-                password: body.password,
+                password: body.password
             },
         })
-        const token = await sign({ id: user.id }, c.env.JWT_SECRET)
+        console.log("the user is----------",user)
+        const token = await sign(
+            {
+                id: user.id,
+                exp: Math.floor(Date.now() / 1000) + 60 * 60 * 24 * 30
+            },
+            c.env.JWT_SECRET)
         return c.json({
-            jwt: token
-
+            jwt: token,
+            user_name:user
         })
 
     } catch (error) {
@@ -58,11 +66,11 @@ userRouter.post('/signin', async (c) => {
     }).$extends(withAccelerate())
 
     const body = await c.req.json()
-    const{success}=singninInput.safeParse(body)
-    if(!success){
+    const { success } = singninInput.safeParse(body)
+    if (!success) {
         c.status(411);
         return c.json({
-            msg:"inputs are not correct"
+            msg: "inputs are not correct"
         })
     }
     try {
@@ -78,9 +86,15 @@ userRouter.post('/signin', async (c) => {
             return c.json({ error: "user not found" });
         }
 
-        const jwt = await sign({ id: user.id }, c.env.JWT_SECRET)
+        const jwt = await sign(
+            {
+                id: user.id,
+                exp: Math.floor(Date.now() / 1000) + 60 * 60 * 24 * 30
+            },
+            c.env.JWT_SECRET)
         return c.json({
-            jwt
+            jwt,
+            user_name:user.name
         })
     } catch (error) {
         console.log(error)

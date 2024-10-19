@@ -19,11 +19,14 @@ export const Signin = () => {
     try {
       const response = await axios.post("http://127.0.0.1:8787/api/v1/user/signin", user)
       const jwt = await response.data.jwt;
+      const user_name = await response.data.user_name;
       if (!jwt) {
         console.log("invalid data from frontend")
       }
-      console.log(jwt)
+      console.log(jwt,'user name is',user_name)
       localStorage.setItem('token', jwt)
+      localStorage.setItem('loggedin_user', user_name)
+      
       navigate('/blogs')
 
     } catch (error) {

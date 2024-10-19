@@ -30,7 +30,7 @@ blogRoutes.use("/*", async (c, next) => {
 })
 
 
-blogRoutes.post('/blog', async (c) => {
+blogRoutes.post('/newblog', async (c) => {
     const prisma = new PrismaClient({
         datasourceUrl: c.env?.DATABASE_URL,
     }).$extends(withAccelerate())
@@ -122,7 +122,20 @@ blogRoutes.get('/bulk', async (c) => {
     }).$extends(withAccelerate())
 
     try {
-        const blogs = await prisma.blog.findMany({})
+        const blogs = await prisma.blog.findMany({
+            select: {
+                content: true,
+                title: true,
+                id: true,
+                createdAt:true,
+                updatedAt:true,
+                author: {                                                                                                                                                                          
+                  select: {
+                    name: true
+                  }                                                                                           
+                }
+              }
+        })
         return c.json({
             blogs
         })
