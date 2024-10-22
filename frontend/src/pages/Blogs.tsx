@@ -1,6 +1,8 @@
 import axios from 'axios'
 import { Blogdemo } from '../components/Blogdemo'
 import { useEffect, useState } from 'react'
+import { Appbar } from '../components/Appbar'
+import { Loader } from '../components/Loader'
 
 export interface Blogif {
   "content": string,
@@ -39,22 +41,36 @@ export const Blogs = () => {
   }, [])
 
   return (
-    <div className='flex justify-evenly h-screen p-2 '>
-      <div className='p-3 w-[50rem]'>
-        {allblogs.length > 0 ? (
-          allblogs.map((blog) => (
-            <div key={blog.id}>
-              <Blogdemo blog={blog}></Blogdemo>
-            </div>
-
-          ))
-        ) : (
-          <p>no blogs available </p>
-        )}
+    <div className='bg-gray-100'>
+      <div className="top-0 static">
+        <Appbar></Appbar>
       </div>
+      <div className='flex justify-evenly h-screen p-2 '>
 
-      <div>
-        blog app description box
+        <div className='p-3 w-[25rem] md:w-[35rem]'>
+          {allblogs.length > 0 ? (
+            allblogs.map((blog) => (
+
+              <div key={blog.id}>
+                <Blogdemo blog={blog}></Blogdemo>
+              </div>
+
+            ))
+          ) : (
+            <div className=''>
+              <Loader></Loader>
+              <Loader></Loader>
+              <Loader></Loader>
+              <Loader></Loader>
+              <Loader></Loader>
+
+            </div>
+          )}
+        </div>
+
+        <div className='hidden lg:block'>
+          blog app description box
+        </div>
       </div>
     </div>
   )
