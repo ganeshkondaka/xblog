@@ -20,14 +20,14 @@ export const Signup = () => {
     }
     
     try {
-      const response= await axios.post("http://127.0.0.1:8787/api/v1/user/signup",user)
+      const response= await axios.post("https://backend.ganeshcoursera1122.workers.dev/api/v1/user/signup",user)
       const jwt=response.data;
       if(!jwt){
         console.log("invalid data from frontend")
       }
       console.log(jwt)
       localStorage.setItem('token', jwt);
-      // navigate('/blogs')
+      navigate('/blogs')
 
     } catch (error) {
       //toast.error

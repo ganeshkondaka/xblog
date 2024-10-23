@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Image_input } from "../components/Image_input";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 
 export const PostBlog = () => {
   const [title, setTitle] = useState("");
@@ -27,7 +27,7 @@ export const PostBlog = () => {
         Authorization: token
       }
 
-      const sent_response = await axios.post("http://127.0.0.1:8787/api/v1/blog/newblog", blogData, { headers })
+      const sent_response = await axios.post("https://backend.ganeshcoursera1122.workers.dev/api/v1/blog/newblog", blogData, { headers })
       
       if (sent_response.status == 200) {
         console.log("blog posted successfully", sent_response)

@@ -28,9 +28,9 @@ export const Blogs = () => {
         const headers = {
           Authorization: token
         }
-        const allblogs_reponse = await axios.get("http://127.0.0.1:8787/api/v1/blog/bulk", { headers })
+        const allblogs_reponse = await axios.get("https://backend.ganeshcoursera1122.workers.dev/api/v1/blog/bulk", { headers })
         const blogs = allblogs_reponse.data.blogs
-        console.log('all the  blogs are ', blogs)
+        // console.log('all the  blogs are ', blogs)
 
         setallblogs(blogs)
       } catch (error) {
@@ -45,7 +45,7 @@ export const Blogs = () => {
       <div className="top-0 static">
         <Appbar></Appbar>
       </div>
-      <div className='flex justify-evenly h-screen p-2 '>
+      <div className='flex justify-evenly h-screen p-2 pt-16'>
 
         <div className='p-3 w-[25rem] md:w-[35rem]'>
           {allblogs.length > 0 ? (

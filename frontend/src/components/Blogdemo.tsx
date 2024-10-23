@@ -15,11 +15,11 @@ export const Blogdemo = ({ blog }: BlogdemoProps) => {
   }
 
   return (
-    <div className="mb-5">
+    <div className="mb-5 ">
 
       <div  onClick={() => handle_blogid(blog.id)} className="">
         <div className="flex itmes-center pb-4">
-          <div className="bg-black h-6 w-6 rounded-full text-center text-1xl text-white  font-bold flex justify-center font-serif ">{(blog.author.name).slice(0, 1)} </div>
+          <div className="bg-black h-6 w-6 rounded-full text-center text-1xl text-white  font-bold flex justify-center items-center font-serif ">{(blog.author.name).slice(0, 1)} </div>
           <div className="flex items-center pl-4 text-slate-800 font-mono">{blog.author.name}</div>
         </div>
         <h1 className="text-2xl font-bold pl-1">
