@@ -23,7 +23,7 @@ export const Signin = () => {
       if (!jwt) {
         console.log("invalid data from frontend")
       }
-      console.log(jwt,'user name is',user_name)
+      // console.log(jwt,'user name is',user_name)
       localStorage.setItem('token', jwt)
       localStorage.setItem('loggedin_user', user_name)
       

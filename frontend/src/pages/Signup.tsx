@@ -21,7 +21,7 @@ export const Signup = () => {
     
     try {
       const response= await axios.post("https://backend.ganeshcoursera1122.workers.dev/api/v1/user/signup",user)
-      const jwt= await response.data;
+      const jwt= await response.data.jwt;
       const user_name = await response.data.user_name;
       if(!jwt){
         console.log("invalid data from frontend")
