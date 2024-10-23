@@ -58,6 +58,7 @@ export const Signup = () => {
                   placeholder="name"
                   value={name}
                   onChange={(e)=>setname(e.target.value)}
+                  required
                   className="px-7 rounded-full h-16 mb-5 w-[20rem]" />
 
                 <input
@@ -67,6 +68,7 @@ export const Signup = () => {
                   placeholder="email"
                   value={username}
                   onChange={(e)=>setusername(e.target.value)}
+                  required
                   className="px-7 rounded-full h-16 mb-5 w-[20rem]" />
                   
                 <input
@@ -76,6 +78,7 @@ export const Signup = () => {
                   placeholder="password"
                   value={password}
                   onChange={(e)=>setpassword(e.target.value)}
+                  required
                   className="px-7 rounded-full h-16 mb-5 w-[20rem]" />
 
                 <span className="text-gray-300">

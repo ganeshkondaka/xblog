@@ -52,6 +52,7 @@ export const Signin = () => {
                 id=""
                 placeholder="email"
                 value={username}
+                required
                 onChange={(e) => setusername(e.target.value)}
                 className="px-7 rounded-full h-16 mb-5 w-[20rem]" />
 
@@ -61,6 +62,7 @@ export const Signin = () => {
                 id=""
                 placeholder="password"
                 value={password}
+                required
                 onChange={(e) => setpassword(e.target.value)}
                 className="px-7 rounded-full h-16 mb-5 w-[20rem]" />
 
