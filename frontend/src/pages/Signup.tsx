@@ -21,12 +21,14 @@ export const Signup = () => {
     
     try {
       const response= await axios.post("https://backend.ganeshcoursera1122.workers.dev/api/v1/user/signup",user)
-      const jwt=response.data;
+      const jwt= await response.data;
+      const user_name = await response.data.user_name;
       if(!jwt){
         console.log("invalid data from frontend")
       }
-      console.log(jwt)
-      localStorage.setItem('token', jwt);
+      // console.log(jwt)
+      localStorage.setItem('token', jwt)
+      localStorage.setItem('loggedin_user', user_name)
       navigate('/blogs')
 
     } catch (error) {
