@@ -29,6 +29,7 @@ export const Signup = () => {
       // console.log(jwt)
       localStorage.setItem('token', jwt)
       localStorage.setItem('loggedin_user', user_name)
+      
       navigate('/blogs')
 
     } catch (error) {
