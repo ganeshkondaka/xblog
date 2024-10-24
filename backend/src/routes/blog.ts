@@ -8,10 +8,10 @@ export const blogRoutes = new Hono<{
     Bindings: {
         DATABASE_URL: string,
         JWT_SECRET: string
-        
+
     },
     Variables: {
-        userId:string;
+        userId: string;
     }
 }>();
 
@@ -34,14 +34,14 @@ blogRoutes.post('/newblog', async (c) => {
     const prisma = new PrismaClient({
         datasourceUrl: c.env?.DATABASE_URL,
     }).$extends(withAccelerate())
-    const author_id=c.get("userId")
+    const author_id = c.get("userId")
 
     const body = await c.req.json()
-    const{success}=create_bloginput.safeParse(body)
-    if(!success){
+    const { success } = create_bloginput.safeParse(body)
+    if (!success) {
         c.status(411);
         return c.json({
-            msg:"inputs are not correct"
+            msg: "inputs are not correct"
         })
     }
 
@@ -68,11 +68,11 @@ blogRoutes.put('/update', async (c) => {
     }).$extends(withAccelerate())
 
     const body = await c.req.json()
-    const{success}=update_bloginput.safeParse(body)
-    if(!success){
+    const { success } = update_bloginput.safeParse(body)
+    if (!success) {
         c.status(411);
         return c.json({
-            msg:"inputs are not correct"
+            msg: "inputs are not correct"
         })
     }
     try {
@@ -108,14 +108,14 @@ blogRoutes.get('/getblog/:id', async (c) => {
                 content: true,
                 title: true,
                 id: true,
-                createdAt:true,
-                updatedAt:true,
-                author: {                                                                                                                                                                          
-                  select: {
-                    name: true
-                  }                                                                                           
+                createdAt: true,
+                updatedAt: true,
+                author: {
+                    select: {
+                        name: true
+                    }
                 }
-              }
+            }
         })
         return c.json({
             blog
@@ -139,14 +139,14 @@ blogRoutes.get('/bulk', async (c) => {
                 content: true,
                 title: true,
                 id: true,
-                createdAt:true,
-                updatedAt:true,
-                author: {                                                                                                                                                                          
-                  select: {
-                    name: true
-                  }                                                                                           
+                createdAt: true,
+                updatedAt: true,
+                author: {
+                    select: {
+                        name: true
+                    }
                 }
-              }
+            }
         })
         return c.json({
             blogs
