@@ -28,8 +28,8 @@ export const Blogs = () => {
         const headers = {
           Authorization: token
         }
-        // const allblogs_reponse = await axios.get("https://backend.ganeshcoursera1122.workers.dev/api/v1/blog/bulk", { headers })
-        const allblogs_reponse = await axios.get("http://127.0.0.1:8787/api/v1/blog/bulk", { headers })
+        const allblogs_reponse = await axios.get("https://backend.ganeshcoursera1122.workers.dev/api/v1/blog/bulk", { headers })
+        // const allblogs_reponse = await axios.get("http://127.0.0.1:8787/api/v1/blog/bulk", { headers })
         const blogs = allblogs_reponse.data.blogs
         // console.log('all the  blogs are ', blogs)
 
