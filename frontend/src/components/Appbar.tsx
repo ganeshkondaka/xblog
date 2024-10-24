@@ -11,7 +11,7 @@ export const Appbar = () => {
 
                 <div>
                     <Link to={'/postblog'}>
-                        <button type="button" className="mr-4 text-white bg-blue-500 hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2">Create blog</button>
+                        <button type="button" className="mr-0 text-white bg-blue-500 hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2">Create blog</button>
                     </Link>
                 </div>
             </div>

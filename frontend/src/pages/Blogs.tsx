@@ -42,7 +42,7 @@ export const Blogs = () => {
   }, [])
 
   return (
-    <div className='bg-gray-100'>
+    <div className=''>
       <div className="top-0 static">
         <Appbar></Appbar>
       </div>
