@@ -37,11 +37,11 @@ export const Signin = () => {
   return (
     <div className='flex justify-center items-center bg-slate-800 h-screen'>
       <div className="w-[50%] h-full flex justify-center items-center">
-        <div className="md:w-full bg-slate-500 rounded-2xl h-[40rem] flex justify-center items-center flex-col">
-          <span className="flex justify-center items-center flex-col w-[23rem] ">
+        <div className="md:w-full bg-slate-500 rounded-2xl h-[33rem] flex justify-center items-center flex-col">
+          <span className="flex justify-center items-center flex-col w-full px-5  ">
 
-            <h2 className="text-white text-8xl font-bold pb-10">🧔</h2>
-            <h2 className="text-white text-3xl font-bold pb-10">Sign in</h2>
+            <h2 className="text-white text-7xl font-bold pb-5">🧔</h2>
+            <h2 className="text-white text-3xl font-bold pb-10">Signin</h2>
 
             <form action="" onSubmit={handle_submit} className="flex flex-col items-center">
               {/* <input type="text" name="" id="" placeholder="name" className="px-7 rounded-full h-16 mb-5 w-[20rem]"/> */}
@@ -54,7 +54,7 @@ export const Signin = () => {
                 value={username}
                 required
                 onChange={(e) => setusername(e.target.value)}
-                className="px-7 rounded-full h-16 mb-5 w-[20rem]" />
+                className="px-7 rounded-full h-16 mb-5 w-[18rem] md:w-[20rem]" />
 
               <input
                 type="text"
@@ -64,13 +64,13 @@ export const Signin = () => {
                 value={password}
                 required
                 onChange={(e) => setpassword(e.target.value)}
-                className="px-7 rounded-full h-16 mb-5 w-[20rem]" />
+                className="px-7 rounded-full h-16 mb-5 w-[18rem] md:w-[20rem]" />
 
               {/* <span className="text-gray-300">
                   <input type="checkbox" name="" id="" className="w-8 "></input>By singning up, you agree to our <br /> Terms, Data Policyand Cookies.
                 </span> */}
-              <button type='submit' className="bg-blue-600  w-full rounded-full text-white font-bold h-16 mt-10">Sign in </button>
-              <p className='mt-7'>Don't have an account..? <Link to={'/signup'} className='text-violet-300'>Signup</Link> </p>
+              <button type='submit' className="bg-blue-600  w-full rounded-full text-white font-bold h-16 my-5">Sign in </button>
+              <p className='my-1'>Don't have an account..? <Link to={'/signup'} className='text-violet-300'>Signup</Link> </p>
             </form>
 
           </span>

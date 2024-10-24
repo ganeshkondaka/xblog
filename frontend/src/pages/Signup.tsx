@@ -50,9 +50,9 @@ export const Signup = () => {
         </div>
 
         <div className="w-[50%] h-full flex justify-center items-center">
-          <div className="md:w-full bg-slate-500 rounded-2xl h-[40rem] flex justify-center items-center flex-col">
-            <span className="flex justify-center items-center flex-col w-[23rem] ">
-              <h2 className="text-white text-3xl font-bold pb-10">Register Account</h2>
+          <div className="md:w-full w-80 bg-slate-500 rounded-2xl h-[33rem] flex justify-center items-center flex-col">
+            <span className="flex justify-center items-center flex-col w-full px-5 ">
+              <h2 className="text-white text-3xl font-bold py-8">Register</h2>
 
               <form action="" onSubmit={handle_submit} className="flex flex-col items-center">
                 <input type="text"
@@ -62,7 +62,7 @@ export const Signup = () => {
                   value={name}
                   onChange={(e)=>setname(e.target.value)}
                   required
-                  className="px-7 rounded-full h-16 mb-5 w-[20rem]" />
+                  className="px-7 rounded-full h-16 mb-5 w-[18rem] md:w-[20rem]" />
 
                 <input
                   type="text"
@@ -72,7 +72,7 @@ export const Signup = () => {
                   value={username}
                   onChange={(e)=>setusername(e.target.value)}
                   required
-                  className="px-7 rounded-full h-16 mb-5 w-[20rem]" />
+                  className="px-7 rounded-full h-16 mb-5 w-[18rem] md:w-[20rem]" />
                   
                 <input
                   type="text"
@@ -82,13 +82,13 @@ export const Signup = () => {
                   value={password}
                   onChange={(e)=>setpassword(e.target.value)}
                   required
-                  className="px-7 rounded-full h-16 mb-5 w-[20rem]" />
+                  className="px-7 rounded-full h-16 mb-5 w-[18rem] md:w-[20rem]" />
 
                 <span className="text-gray-300">
                   <input type="checkbox" name="" id="" className="w-8 "></input>By singning up, you agree to our <br /> Terms, Data Policyand Cookies.
                 </span>
-                <button type="submit" className="bg-blue-600  w-full rounded-full text-white font-bold h-16 mt-12">Get Started</button>
-                <p className='mt-7'>Already have an account..? <Link to={'/signin'} className='text-violet-300'>Signin</Link> </p>
+                <button type="submit" className="bg-blue-600  w-full rounded-full text-white font-bold h-16 mt-5">Get Started</button>
+                <p className='my-3'>Already have an account..? <Link to={'/signin'} className='text-violet-300'>Signin</Link> </p>
               </form>
 
             </span>

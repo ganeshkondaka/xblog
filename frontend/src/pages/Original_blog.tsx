@@ -28,7 +28,7 @@ export const Original_blog = () => {
 
         const blog_response = await axios.get(`https://backend.ganeshcoursera1122.workers.dev/api/v1/blog/getblog/${blog_id}`, { headers })
         const blog = blog_response.data.blog
-        // console.log('the blogs is ', blog)
+        console.log('the blogs is ', blog)
 
         setblog(blog)
       } catch (error) {
@@ -57,12 +57,12 @@ export const Original_blog = () => {
           {blog?.title}
           </h1>
 
-          <div className="flex itmes-center pb-4 pt-3 pl-1">
+          <div className="flex itmes-center pb-4 pt-8 pl-1">
             <div className="bg-black h-12 w-12 rounded-full text-center text-2xl text-white font-bold flex justify-center items-center font-serif  "> {blog?.author?.name.slice(0, 1)} </div>
             
             <div className=" flex items-start flex-col justify-end pl-4 ">
               <div className=" text-slate-700 text-1xl text-left font-bold font-mono">{blog?.author.name}</div> 
-              <p className="text-1xl text-gray-500">  → Publushed in XBlog ©</p>
+              <p className="text-1xl text-gray-500">  → Published in XBlog ©</p>
             </div>
 
           </div>

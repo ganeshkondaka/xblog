@@ -44,12 +44,12 @@ export const PostBlog = () => {
   };
 
   return (
-    <div className="p-5">
+    <div className="mb-5">
       <button onClick={()=>{navigate('/blogs')}} className="relative w-16 h-16 moving-div text-gray-400 text-2xl pl-10 pt-10">
         ←-
       </button>
-      <div className="flex flex-col items-center h-[40rem] mt-10">
-        <span className="text-[20px] pb-2 text-left">Create your blog  here...</span>
+      <div className="flex flex-col items-center h-[40rem] mt-5">
+        <span className="text-[20px] font-bold pb-2 text-left">Create your blog  here...</span>
         <div className="w-44 md:w-[40rem]">
           <Image_input />
         </div>
