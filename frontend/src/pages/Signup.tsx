@@ -50,7 +50,7 @@ export const Signup = () => {
           <span className="flex justify-center flex-col font-bold">
             <p className="text-blue-500 text-3xl pb-10">Register your account</p>
             <h1 className="text-white text-6xl pb-10">Start your journey <br /> by creating an <br /> account</h1>
-            <h4 className="text-gray-400 text-lg">the brown fox jumps over the lazy dog</h4>
+            <h4 className="text-gray-400 text-lg">create blogs and read blogs...</h4>
           </span>
         </div>
 

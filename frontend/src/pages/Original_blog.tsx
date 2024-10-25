@@ -28,7 +28,7 @@ export const Original_blog = () => {
 
         const blog_response = await axios.get(`https://backend.ganeshcoursera1122.workers.dev/api/v1/blog/getblog/${blog_id}`, { headers })
         const blog = blog_response.data.blog
-        console.log('the blogs is ', blog)
+        // console.log('the blogs is ', blog)
 
         setblog(blog)
       } catch (error) {
