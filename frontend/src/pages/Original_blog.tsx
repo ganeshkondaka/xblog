@@ -26,7 +26,7 @@ export const Original_blog = () => {
           Authorization: token
         }
 
-        const blog_response = await axios.get(`https://backend.ganeshcoursera1122.workers.dev/api/v1/blog/getblog/${blog_id}`, { headers })
+        const blog_response = await axios.get(`${import.meta.env.VITE_REACT_APP_CLOUDFLARE_BACKEND_URL}/api/v1/blog/getblog/${blog_id}`, { headers })
         const blog = blog_response.data.blog
         // console.log('the blogs is ', blog)
 

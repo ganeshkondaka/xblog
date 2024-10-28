@@ -33,6 +33,10 @@ export const Blogdemo = ({ blog }: BlogdemoProps) => {
         </div>
         <hr className="border border-gray-200" />
       </div>
+
+      <div>
+        <span className=" w-32 h-32 bg-gray-200 rounded sm:w-96 dark:bg-gray-200"></span>
+      </div>
     </div>
   )
 }

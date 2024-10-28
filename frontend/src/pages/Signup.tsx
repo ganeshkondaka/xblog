@@ -23,7 +23,7 @@ export const Signup = () => {
     setloading(true)
 
     try {
-      const response = await axios.post("https://backend.ganeshcoursera1122.workers.dev/api/v1/user/signup", user)
+      const response = await axios.post(`${import.meta.env.VITE_REACT_APP_CLOUDFLARE_BACKEND_URL}/api/v1/user/signup`, user)
       const jwt = await response.data.jwt;
       const user_name = await response.data.user_name;
       if (!jwt) {

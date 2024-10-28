@@ -27,7 +27,7 @@ export const PostBlog = () => {
         Authorization: token
       }
 
-      const sent_response = await axios.post("https://backend.ganeshcoursera1122.workers.dev/api/v1/blog/newblog", blogData, { headers })
+      const sent_response = await axios.post(`${import.meta.env.VITE_REACT_APP_CLOUDFLARE_BACKEND_URL}/api/v1/blog/newblog`, blogData, { headers })
       
       if (sent_response.status == 200) {
         console.log("blog posted successfully", sent_response)
