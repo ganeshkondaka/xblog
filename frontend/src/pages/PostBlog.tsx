@@ -30,7 +30,7 @@ export const PostBlog = () => {
       const sent_response = await axios.post(`${import.meta.env.VITE_REACT_APP_CLOUDFLARE_BACKEND_URL}/api/v1/blog/newblog`, blogData, { headers })
       
       if (sent_response.status == 200) {
-        console.log("blog posted successfully", sent_response)
+        console.log( sent_response)
       }
       else {
         console.log('failed to post the blog')

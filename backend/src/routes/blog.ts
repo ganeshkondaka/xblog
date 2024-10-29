@@ -86,10 +86,11 @@ blogRoutes.put('/update', async (c) => {
             }
         })
         return c.json({
-            id: blog.id
+            blog
         })
     } catch (error) {
         console.log(error)
+    
 
     }
 })
