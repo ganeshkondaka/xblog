@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 import { Blogif } from "./Blogs";
 import axios from "axios";
 import { Appbar } from "../components/Appbar";
@@ -7,6 +7,8 @@ import { Blog_loader } from "../components/Blog_loader";
 
 export const Original_blog = () => {
   const location = useLocation();
+  const navigate = useNavigate();
+
 
   const { blog_id } = location.state as { blog_id: string }; // Type assertion for state
   // Parse the query parameters
@@ -49,6 +51,10 @@ export const Original_blog = () => {
   // console.log('blog is :',blog_is) 
   // module.exports = { blog_is }
 
+  const handle_sentblog=(blog:Blogif)=>{
+    navigate('/updateblog', { state: { blog } })
+  }
+
   return (
     <div>
       <div>
@@ -80,9 +86,9 @@ export const Original_blog = () => {
         </div>
       </div>
 
-      <div className="fixed bottom-0 right-0 m-3 mb-10 bg-green-700 opacity-70 text-white text-1xl p-2 rounded-full">
-        <button className="p-1 " >Edit blog</button>
-      </div>
+      {/* <div className="fixed bottom-0 right-0 m-3 mb-10 bg-green-700 opacity-70 text-white text-1xl p-2 rounded-full">
+        <button className="p-1" onClick={()=>{handle_sentblog(blog)}}>Edit blog</button>
+      </div> */}
 
     </div>
   )
