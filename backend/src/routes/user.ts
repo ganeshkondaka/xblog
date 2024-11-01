@@ -46,7 +46,8 @@ userRouter.post('/signup', async (c) => {
             c.env.JWT_SECRET)
         return c.json({
             jwt: token,
-            user_name:user
+            user_name:user,
+            user
         })
 
     } catch (error) {
