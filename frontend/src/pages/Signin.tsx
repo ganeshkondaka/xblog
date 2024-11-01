@@ -24,6 +24,8 @@ export const Signin = () => {
       const response = await axios.post(`${import.meta.env.VITE_REACT_APP_CLOUDFLARE_BACKEND_URL}/api/v1/user/signin`, user)
       const jwt = await response.data.jwt;
       const user_name = await response.data.user_name;
+      // console.log(response.data)
+      const authorid = await response.data.user.id;
 
       if (!jwt) {
         console.log("invalid data from frontend")
@@ -31,6 +33,7 @@ export const Signin = () => {
       // console.log(jwt,'user name is',user_name)
       localStorage.setItem('token', jwt)
       localStorage.setItem('loggedin_user', user_name)
+      localStorage.setItem('local_authorid', authorid)
 
       navigate('/blogs')
 

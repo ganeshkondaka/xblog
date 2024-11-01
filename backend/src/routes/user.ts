@@ -94,7 +94,8 @@ userRouter.post('/signin', async (c) => {
             c.env.JWT_SECRET)
         return c.json({
             jwt,
-            user_name:user.name
+            user_name:user.name,
+            user
         })
     } catch (error) {
         console.log(error)

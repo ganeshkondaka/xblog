@@ -23,10 +23,10 @@ export const create_bloginput=z.object({
 //type inference in zod
 export type CreateBloginput=z.infer<typeof create_bloginput>
 
-export const update_bloginput=z.object({
+export const update_bloginputs=z.object({
     title:z.string(),
     content:z.string(),
     id:z.string()
 })
 //type inference in zod
-export type UpdateBloginput=z.infer<typeof update_bloginput>
+export type UpdateBloginput=z.infer<typeof update_bloginputs>

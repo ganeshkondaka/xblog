@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom"
-import { Blogif } from "./Blogs";
 import axios from "axios";
 import { Appbar } from "../components/Appbar";
 import { Blog_loader } from "../components/Blog_loader";
+import { Blogif } from "./Blogs";
 
 export const Original_blog = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const loacalauthor_id= localStorage.getItem('local_authorid')
 
 
   const { blog_id } = location.state as { blog_id: string }; // Type assertion for state
@@ -51,7 +52,7 @@ export const Original_blog = () => {
   // console.log('blog is :',blog_is) 
   // module.exports = { blog_is }
 
-  const handle_sentblog=(blog:Blogif)=>{
+  const handle_sentblog = (blog: Blogif) => {
     navigate('/updateblog', { state: { blog } })
   }
 
@@ -86,9 +87,14 @@ export const Original_blog = () => {
         </div>
       </div>
 
-      {/* <div className="fixed bottom-0 right-0 m-3 mb-10 bg-green-700 opacity-70 text-white text-1xl p-2 rounded-full">
-        <button className="p-1" onClick={()=>{handle_sentblog(blog)}}>Edit blog</button>
-      </div> */}
+      {loacalauthor_id === blog.author.id ?  (
+
+        <div className="fixed bottom-0 right-0 m-3 mb-10 bg-green-700 opacity-70 text-white text-1xl p-2 rounded-full">
+          <button className="p-1" onClick={() => { handle_sentblog(blog) }}>Edit blog</button>
+        </div>):(
+          <></>
+        )
+      }
 
     </div>
   )

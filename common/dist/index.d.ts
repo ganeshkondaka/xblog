@@ -38,17 +38,14 @@ export declare const create_bloginput: z.ZodObject<{
     content: string;
 }>;
 export type CreateBloginput = z.infer<typeof create_bloginput>;
-export declare const update_bloginput: z.ZodObject<{
+export declare const update_bloginputs: z.ZodObject<{
     title: z.ZodString;
     content: z.ZodString;
-    id: z.ZodString;
 }, "strip", z.ZodTypeAny, {
     title: string;
     content: string;
-    id: string;
 }, {
     title: string;
     content: string;
-    id: string;
 }>;
-export type UpdateBloginput = z.infer<typeof update_bloginput>;
+export type UpdateBloginput = z.infer<typeof update_bloginputs>;

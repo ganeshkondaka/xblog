@@ -13,6 +13,7 @@ export interface Blogif {
   "updatedAt": string,
   "author": {
     "name": string,
+    "id":string
   },
 
 }

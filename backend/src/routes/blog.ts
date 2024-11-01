@@ -2,7 +2,7 @@ import { Hono } from "hono";
 import { PrismaClient } from '@prisma/client/edge'
 import { withAccelerate } from '@prisma/extension-accelerate'
 import { verify } from 'hono/jwt'
-import { create_bloginput, update_bloginput } from "medium-common-week17";
+import { create_bloginput,   } from "medium-common-week17";
 
 export const blogRoutes = new Hono<{
     Bindings: {
@@ -62,13 +62,16 @@ blogRoutes.post('/newblog', async (c) => {
     }
 })
 
-blogRoutes.put('/update', async (c) => {
+blogRoutes.put('/update/:id', async (c) => {
     const prisma = new PrismaClient({
         datasourceUrl: c.env?.DATABASE_URL,
     }).$extends(withAccelerate())
 
+    const id = c.req.param("id")
     const body = await c.req.json()
-    const { success } = update_bloginput.safeParse(body)
+    // console.log(body)
+
+    const { success } = create_bloginput.safeParse(body)
     if (!success) {
         c.status(411);
         return c.json({
@@ -78,7 +81,7 @@ blogRoutes.put('/update', async (c) => {
     try {
         const blog = await prisma.blog.update({
             where: {
-                id: body.id
+                id: id
             },
             data: {
                 title: body.title,
@@ -113,7 +116,8 @@ blogRoutes.get('/getblog/:id', async (c) => {
                 updatedAt: true,
                 author: {
                     select: {
-                        name: true
+                        name: true,
+                        id:true
                     }
                 }
             }
