@@ -78,7 +78,7 @@ export const Original_blog = () => {
           </div>
 
           <div className="text-gray-600 mb-3 pl-5">
-            {blog?.createdAt.slice(0, 10)}   and extras 'like button'
+          Created At :{(blog.createdAt).slice(0, 10)} | Updated At :{(blog.updatedAt).slice(0, 10)} | and extras 'like button'
             <hr className="border border-gray-100 mt-2" />
           </div>
           <div className="text-gray-800 text-xl mb-4 pl-1 pt-2">
@@ -89,8 +89,8 @@ export const Original_blog = () => {
 
       {loacalauthor_id === blog.author.id ?  (
 
-        <div className="fixed bottom-0 right-0 m-3 mb-10 bg-green-700 opacity-70 text-white text-1xl p-2 rounded-full">
-          <button className="p-1" onClick={() => { handle_sentblog(blog) }}>Edit blog</button>
+        <div className="fixed bottom-0 right-0 m-3 mb-10 bg-green-700 opacity-80 text-white text-1xl p-2 rounded-full">
+          <button className="p-1 text-[16px] font-extrabold" onClick={() => { handle_sentblog(blog) }}>🖊 &lt; Edit</button>
         </div>):(
           <></>
         )

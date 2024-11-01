@@ -71,18 +71,18 @@ export const Update_blog = () => {
       <div className="flex justify-center items-center ">
         <div className="pt-16 p-3 md:w-[40rem] ">
 
-          <div className="flex itmes-center pb-4 pt-8 pl-1 bg-slate-300">
+          <div className="flex itmes-center pb-4 pt-8 pl-1 bg-slate-300 ">
             <div className="bg-gray-500 h-12 w-12 rounded-full text-center text-2xl text-white font-bold flex justify-center items-center font-serif  "> {blog?.author?.name.slice(0, 1)} </div>
 
             <div className=" flex items-start flex-col justify-end pl-4 ">
               <div className=" text-slate-500 text-1xl text-left font-bold font-mono">{blog?.author.name}</div>
-              <p className="text-1xl text-gray-500">  → Published in XBlog ©</p>
+              <p className="text-1xl text-gray-400">  → Published in XBlog ©</p>
             </div>
 
           </div>
 
-          <div className="text-gray-600 mb-3 pl-5 bg-slate-300">
-            {blog?.createdAt.slice(0, 10)}   and extras 'like button'
+          <div className="text-gray-400 mb-3 pl-5 bg-slate-300">
+            Created at : {blog?.createdAt.slice(0, 10)}   and extras 'like button'
             <hr className="border border-gray-100 mt-2" />
           </div>
 
@@ -102,8 +102,8 @@ export const Update_blog = () => {
             {/* {blog?.content} */}
           </textarea>
 
-          <div className="fixed bottom-0 right-0 m-3 mb-10 bg-green-700 opacity-70 text-white text-1xl p-2 rounded-full">
-            <button onClick={handle_updateblog}>Done</button>
+          <div className="fixed top-0 right-0 m-3 mb-10 mr-5 bg-green-700  text-white text-1xl p-2 rounded-2xl">
+            <button onClick={handle_updateblog} className="text-[18px] px-2">Done</button>
           </div>
 
         </div>

@@ -29,7 +29,7 @@ export const Blogdemo = ({ blog }: BlogdemoProps) => {
           {(blog.content).length > 100 ? ((blog.content).slice(0, 100) + '...') : blog.content}
         </div>
         <div className="text-gray-600 mb-6">
-          {(blog.createdAt).slice(0, 10)}   and extras 'like button'
+          Created At :{(blog.createdAt).slice(0, 10)} | Updated At :{(blog.updatedAt).slice(0, 10)} | and extras 'like button'
         </div>
         <hr className="border border-gray-200" />
       </div>
