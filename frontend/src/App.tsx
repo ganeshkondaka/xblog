@@ -5,6 +5,7 @@ import { Blogs } from './pages/Blogs'
 import { PostBlog } from './pages/PostBlog'
 import { Original_blog } from './pages/Original_blog'
 import { Update_blog } from './pages/Update_blog'
+import { Landingpage } from './pages/Landingpage'
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
+          <Route path="/" element={<Landingpage />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/signin" element={<Signin />} />
           {/* <Route path="/blog/:id" element={<Blog />} /> */}
