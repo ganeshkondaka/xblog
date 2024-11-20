@@ -79,9 +79,9 @@ export const Landingpage = () => {
                             <div className="relative rounded-xl overflow-hidden shadow-2xl">
                                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900/10 to-transparent"></div>
                                 <img
-                                    src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&q=80&w=2000"
+                                    src="../blogman.jpeg"
                                     alt="Blog Platform Preview"
-                                    className="w-full h-[400px] object-cover"
+                                    className="w-full h-[500px] object-cover"
                                 />
                             </div>
                         </div>

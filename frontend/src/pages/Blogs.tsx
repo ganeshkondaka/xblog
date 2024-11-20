@@ -84,8 +84,8 @@ export const Blogs = () => {
           <div className='fixed top-[20%] right-[10%] flex flex-col items-center'>
             <img src="../xblog2.jpg" alt="xblog logo" className='w-52 h-52 rounded-2xl' />
             <div className='mt-5 text-center'>
-              <p className='text-xl font-bold text-zinc-700'>-/ publish you blogs in XBlog ◩◪</p>
-              <p className='text-xl pt-4 text-zinc-600'>© 2024 Ganesh. All rights reserved.</p>
+              <p className='text-xl font-bold text-zinc-700'>-/ publish you blogs in XBlog </p>
+              <p className='text-xl font-bold pt-4 text-zinc-500'>© 2024 Ganesh. All rights reserved.</p>
               <p className='text-lg font-bold pt-4 text-zinc-400'> Made with ❤️ by <a href="https://github.com/ganeshkondaka" className='text-purple-400 underline'>Ganesh</a>  </p>
             </div>
           </div>
