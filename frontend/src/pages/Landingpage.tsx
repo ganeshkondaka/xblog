@@ -25,7 +25,7 @@ export const Landingpage = () => {
                                 </a>
                                 <a
                                     href="/blogs"
-                                    className="inline-flex items-center gap-2 bg-green-50 text-green-700 px-6 py-3 rounded-lg font-medium hover:bg-green-100 transition-all duration-300"
+                                    className="inline-flex items-center gap-2 bg-blue-400 text-white px-6 py-3 rounded-lg font-medium hover:bg-green-300 transition-all duration-300"
                                 >
                                     Browse Blogs
                                 </a>
@@ -47,19 +47,19 @@ export const Landingpage = () => {
                                     title: 'Read',
                                     description: 'Discover amazing content from writers around the world',
                                     color: 'text-green-500',
-                                    bgColor: 'bg-green-50'
+                                    bgColor: 'bg-green-100'
                                 },
                                 {
                                    
                                     title: 'Update',
                                     description: 'Keep your content fresh with easy updates and revisions',
                                     color: 'text-gray-500',
-                                    bgColor: 'bg-gray-50'
+                                    bgColor: 'bg-gray-100'
                                 }
                             ].map((feature, index) => (
                                 <div
                                     key={index}
-                                    className="p-6 rounded-xl border border-gray-100 hover:border-gray-200 transition-all duration-300 hover:shadow-lg bg-white"
+                                    className="p-6 rounded-xl border border-gray-200 hover:border-gray-200 transition-all duration-300 hover:shadow-lg bg-white"
                                 >
                                     <div className={`${feature.bgColor} w-12 h-12 rounded-lg flex items-center justify-center mb-4`}>
                                       
