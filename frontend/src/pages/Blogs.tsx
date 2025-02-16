@@ -63,7 +63,7 @@ export const Blogs = () => {
           {allblogs.length > 0 ? (
             allblogs.map((blog) => (
 
-              <div key={blog.id}>
+              <div key={blog.id} className='hover:scale-105 transition-all duration-200 hover:bg-zinc-100 rounded-xl '>
                 <Blogdemo blog={blog}></Blogdemo>
               </div>
 
@@ -82,11 +82,11 @@ export const Blogs = () => {
 
         <div className='hidden lg:block  h-full'>
           <div className='fixed top-[20%] right-[10%] flex flex-col items-center'>
-            <img src="../xblog2.jpg" alt="xblog logo" className='w-52 h-52 rounded-2xl' />
+            <img src="../xblog2.jpg" alt="xblog logo" className='w-24 h-24 rounded-2xl' />
             <div className='mt-5 text-center'>
-              <p className='text-xl font-bold text-zinc-700'>-/ publish you blogs in XBlog </p>
-              <p className='text-xl font-bold pt-4 text-zinc-500'>© 2024 Ganesh. All rights reserved.</p>
-              <p className='text-lg font-bold pt-4 text-zinc-400'> Made with ❤️ by <a href="https://github.com/ganeshkondaka" className='text-purple-400 underline'>Ganesh</a>  </p>
+              <p className='text-sm font-bold text-zinc-700'>-/ publish you blogs in XBlog </p>
+              <p className='text-sm font-bold pt-4 text-zinc-500'>© 2024 Ganesh. All rights reserved.</p>
+              <p className='text-xs font-bold pt-4 text-zinc-400'> Made with ❤️ by <a href="https://github.com/ganeshkondaka" className='text-purple-400 underline'>Ganesh</a>  </p>
             </div>
           </div>
         </div>
